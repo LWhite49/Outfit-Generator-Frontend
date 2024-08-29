@@ -46,11 +46,11 @@
 	transform: translateY(6px);
 }
 .Outfit-Rating-Img-Pos-Clicked {
-	animation: pulsePos 0.5s infinite;
+	animation: pulsePos 0.5s forwards;
 }
 .Outfit-Rating-Img-Neg-Clicked {
 	transform: translateY(6px);
-	animation: pulseNeg 0.5s infinite;
+	animation: pulseNeg 0.5s forwards;
 }
 
 @keyframes pulsePos {
