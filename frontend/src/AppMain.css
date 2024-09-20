@@ -51,14 +51,13 @@
 .NavbarLogo,
 .NavbarLogo-Loading {
 	position: absolute;
-	top: 8px;
-	left: 20px;
+	top: 10px;
+	left: 40px;
 	z-index: 101;
-	border: 2px double black;
+	border: 4px double rgb(172, 50, 183);
 	border-radius: 45px;
-	width: max(8vh, 90px);
-	height: max(8vh, 90px);
-	pointer-events: none;
+	width: 78px;
+	height: 78px;
 }
 .NavbarLogo-Loading {
 	position: absolute;

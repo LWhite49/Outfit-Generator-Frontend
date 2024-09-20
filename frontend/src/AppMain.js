@@ -6,7 +6,7 @@ import { useState, createContext, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import axios from "axios";
-import logo from "./images/OGLogo.png";
+import logo from "./images/WWLogo.png";
 import circle from "./images/circle.svg";
 import loadingBuddy from "./images/LoadingBuddy.png";
 
@@ -86,7 +86,7 @@ export const AppMain = () => {
 	const fetchOutfitFeed = async () => {
 		try {
 			// Define target URL
-			let url = `http://localhost:3500/generateOutfitFeed?size=${JSON.stringify(
+			let url = `http://wardrobewizard-backend.onrender.com/generateOutfitFeed?size=${JSON.stringify(
 				size
 			)}&brand=${JSON.stringify(
 				brand
@@ -126,7 +126,7 @@ export const AppMain = () => {
 	// Define function that extends the feed by 20 outfits
 	const expandFeed = async () => {
 		try {
-			let url = `http://localhost:3500/generateOutfitFeed?size=${JSON.stringify(
+			let url = `http://wardrobewizard-backend.onrender.com/generateOutfitFeed?size=${JSON.stringify(
 				size
 			)}&brand=${JSON.stringify(
 				brand
@@ -166,7 +166,7 @@ export const AppMain = () => {
 	const rateOutfit = async (args) => {
 		try {
 			console.log("Rating Outfit...");
-			let url = `http://localhost:3500/rateOutfit`;
+			let url = `http://wardrobewizard-backend.onrender.com/rateOutfit`;
 			let res = await axios.post(url, {
 				p1: args[0],
 				p2: args[1],
@@ -194,7 +194,7 @@ export const AppMain = () => {
 	const deleteOutfit = async (args) => {
 		try {
 			console.log("Deleting Outfit...");
-			let url = `http://localhost:3500/deleteItem`;
+			let url = `http://wardrobewizard-backend.onrender.com/deleteItem`;
 			let res = await axios.post(url, {
 				id: args.id,
 				collection: args.collection,
@@ -262,18 +262,18 @@ export const AppMain = () => {
 								Home{" "}
 							</Link>
 							<Link
-								to="/generator"
+								to="/wardrobe"
 								className={
-									subPage === "/generator"
+									subPage === "/wardrobe"
 										? "NavbarElem Selected"
 										: "NavbarElem"
 								}
 								onClick={() => {
 									window.scrollTo(0, 0);
-									setSubPage("/generator");
+									setSubPage("/wardrobe");
 								}}>
 								{" "}
-								Generator{" "}
+								Wardrobe{" "}
 							</Link>
 							<Link
 								to="/about"
@@ -290,13 +290,22 @@ export const AppMain = () => {
 								About{" "}
 							</Link>
 						</div>
-						<img className="NavbarLogo" src={logo} alt="Logo"></img>
+						<Link
+							to="/"
+							onClick={() => {
+								window.scrollTo(0, 0);
+								setSubPage("/home");
+							}}>
+							<img
+								className="NavbarLogo"
+								src={logo}
+								alt="Logo"
+								onClick={() => {}}></img>
+						</Link>
 					</div>
 					<Routes>
 						<Route path="/" element={<Home />}></Route>
-						<Route
-							path="/generator"
-							element={<Generator />}></Route>
+						<Route path="/wardrobe" element={<Generator />}></Route>
 						<Route path="/about" element={<About />}></Route>
 					</Routes>
 				</div>

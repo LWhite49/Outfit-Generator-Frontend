@@ -293,7 +293,7 @@ export const Generator = () => {
 	return (
 		<div className="Generator">
 			<div className="Generator-Settings">
-				<p className="Generator-Settings-Header">Generator Settings</p>
+				<p className="Generator-Settings-Header">Wardrobe Settings</p>
 				<div className="Gender-Container">
 					<div className="Gender-Slider-Container">
 						<label

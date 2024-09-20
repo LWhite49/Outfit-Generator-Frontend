@@ -30,7 +30,7 @@ export const Home = () => {
 			<div className="Home-Hero">
 				<div className="Rel-Dummy">
 					<div className="Hero-Overlay">
-						<p className="Hero-Header">Outfit Generator</p>
+						<p className="Hero-Header">Wardrobe Wizard</p>
 						<p className="Hero-Subheader">
 							{" "}
 							Stylish fits from our image processing algorithm,
