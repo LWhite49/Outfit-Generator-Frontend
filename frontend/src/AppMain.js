@@ -22,11 +22,18 @@ const images = imageContextKeys.map((key) => imageContext(key));
 // Create a context for the outfitFeed array to avoid prop drilling
 export const FeedContext = createContext();
 
-// Create a query client for managing GET / POST requests
-
 export const AppMain = () => {
 	// Create a state for the outfitFeed array as well as a bool telling if the feed is randomly generated
 	const [outfitFeed, setOutfitFeed] = useState([]);
+
+	// Reference origin to conditionally assign requests to the server
+	const origin = window.location.origin;
+	let backendTarget = "";
+	if (origin.contains("localhost")) {
+		backendTarget = "http://localhost:3500";
+	} else {
+		backendTarget = "https://wardrobewizard-backend.onrender.com";
+	}
 
 	// Create state for feed status, used for conditional rendering and feed expansion
 	const [feedStatus, setFeedStatus] = useState({
@@ -86,7 +93,7 @@ export const AppMain = () => {
 	const fetchOutfitFeed = async () => {
 		try {
 			// Define target URL
-			let url = `http://wardrobewizard-backend.onrender.com/generateOutfitFeed?size=${JSON.stringify(
+			let url = `${backendTarget}/generateOutfitFeed?size=${JSON.stringify(
 				size
 			)}&brand=${JSON.stringify(
 				brand
@@ -126,7 +133,7 @@ export const AppMain = () => {
 	// Define function that extends the feed by 20 outfits
 	const expandFeed = async () => {
 		try {
-			let url = `http://wardrobewizard-backend.onrender.com/generateOutfitFeed?size=${JSON.stringify(
+			let url = `${backendTarget}/generateOutfitFeed?size=${JSON.stringify(
 				size
 			)}&brand=${JSON.stringify(
 				brand
@@ -166,7 +173,7 @@ export const AppMain = () => {
 	const rateOutfit = async (args) => {
 		try {
 			console.log("Rating Outfit...");
-			let url = `http://wardrobewizard-backend.onrender.com/rateOutfit`;
+			let url = `${backendTarget}/rateOutfit`;
 			let res = await axios.post(url, {
 				p1: args[0],
 				p2: args[1],
@@ -194,7 +201,7 @@ export const AppMain = () => {
 	const deleteOutfit = async (args) => {
 		try {
 			console.log("Deleting Outfit...");
-			let url = `http://wardrobewizard-backend.onrender.com/deleteItem`;
+			let url = `${backendTarget}/deleteItem`;
 			let res = await axios.post(url, {
 				id: args.id,
 				collection: args.collection,
