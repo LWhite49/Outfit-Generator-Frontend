@@ -10,6 +10,11 @@ import logo from "./images/WWLogo.png";
 import circle from "./images/circle.svg";
 import loadingBuddy from "./images/LoadingBuddy.png";
 
+// Issues on current production build
+// #1) Loading bubbles do not move smoothly
+// #2) Replace loading buddy
+// #3) Ensure Jump In Button is working
+
 //Import Images using require.context
 const imageContext = require.context(
 	"./images/CarouselImages",
