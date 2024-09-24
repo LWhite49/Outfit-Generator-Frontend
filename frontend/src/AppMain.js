@@ -29,7 +29,7 @@ export const AppMain = () => {
 	// Reference origin to conditionally assign requests to the server
 	const origin = window.location.origin;
 	let backendTarget = "";
-	if (origin.contains("localhost")) {
+	if (origin.includes("localhost")) {
 		backendTarget = "http://localhost:3500";
 	} else {
 		backendTarget = "https://wardrobewizard-backend.onrender.com";
