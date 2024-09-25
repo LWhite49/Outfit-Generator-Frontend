@@ -12,8 +12,6 @@ import loadingBuddy from "./images/LoadingBuddy.png";
 
 // Issues on current production build
 // #1) Loading bubbles do not move smoothly
-// #2) Replace loading buddy
-// #3) Ensure Jump In Button is working
 
 //Import Images using require.context
 const imageContext = require.context(
@@ -124,7 +122,12 @@ export const AppMain = () => {
 	};
 
 	// useQuery to fetch the outfitFeed from the server
-	const { isLoading, isError } = useQuery({
+	// does NOT automatically refetch when states change, instead uses refetchFeed function
+	const {
+		isLoading,
+		isError,
+		refetch: refetchFeed,
+	} = useQuery({
 		queryKey: [
 			"outfitFeed",
 			size,
@@ -136,7 +139,12 @@ export const AppMain = () => {
 		queryFn: fetchOutfitFeed,
 		retry: 3,
 		refetchOnWindowFocus: false,
+		enabled: false,
 	});
+
+	useEffect(() => {
+		refetchFeed();
+	}, [refetchFeed]);
 
 	// Define function that extends the feed by 20 outfits
 	const expandFeed = async () => {
@@ -185,10 +193,9 @@ export const AppMain = () => {
 		try {
 			console.log("Rating Outfit...");
 			let url = `${backendTarget}/rateOutfit`;
-			let res = await axios.post(url, {
-				method: "POST",
-				credentials: "include",
-				body: {
+			let res = await axios.post(
+				url,
+				{
 					p1: args[0],
 					p2: args[1],
 					p3: args[2],
@@ -197,7 +204,8 @@ export const AppMain = () => {
 					id3: args[5],
 					rating: args[6],
 				},
-			});
+				{ method: "POST", credentials: "include" }
+			);
 			console.log("Outfit Rated");
 			return res.data;
 		} catch (err) {
@@ -217,14 +225,14 @@ export const AppMain = () => {
 		try {
 			console.log("Deleting Outfit...");
 			let url = `${backendTarget}/deleteItem`;
-			let res = await axios.post(url, {
-				method: "DELETE",
-				credentials: "include",
-				body: {
+			let res = await axios.post(
+				url,
+				{
 					id: args.id,
 					collection: args.collection,
 				},
-			});
+				{ method: "POST", credentials: "include" }
+			);
 			console.log("Outfit Deleted");
 			return res.data;
 		} catch (err) {
@@ -250,6 +258,7 @@ export const AppMain = () => {
 					setFeedStatus,
 					isLoading,
 					isError,
+					refetchFeed,
 					isLoadingExpand,
 					isErrorExpand,
 					refetchExpandFeed,

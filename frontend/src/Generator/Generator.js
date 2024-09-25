@@ -26,6 +26,7 @@ export const Generator = () => {
 		feedStatus,
 		isLoading,
 		isLoadingExpand,
+		refetchFeed,
 	} = useContext(FeedContext);
 
 	// Define checked states for each slider
@@ -649,6 +650,15 @@ export const Generator = () => {
 				<div className="Brand-Container">
 					<p className="Size-Label">Brand:</p>
 					<Keywords />
+				</div>
+				<div className="Generate-Button-Container">
+					<button
+						className="Generate-Button"
+						onClick={() => {
+							refetchFeed();
+						}}>
+						Generate Outfits
+					</button>
 				</div>
 				<p
 					className={
