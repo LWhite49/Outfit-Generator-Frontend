@@ -105,7 +105,10 @@ export const AppMain = () => {
 			)}&topGender=${topGender}&bottomGender=${bottomGender}&shoeGender=${shoeGender}`;
 			// Get the outfitFeed from the server
 			console.log("Fetching Feed");
-			let res = await axios.get(url);
+			let res = await axios.get(url, {
+				method: "GET",
+				credentials: "include",
+			});
 			console.log("Feed Fetched");
 			// Set the outfitFeed state
 			setOutfitFeed(res.data);
@@ -143,7 +146,10 @@ export const AppMain = () => {
 			)}&brand=${JSON.stringify(
 				brand
 			)}&topGender=${topGender}&bottomGender=${bottomGender}&shoeGender=${shoeGender}`;
-			let res = await axios.get(url);
+			let res = await axios.get(url, {
+				method: "GET",
+				credentials: "include",
+			});
 			const diff = outfitFeed.pallet.length;
 			const adjustedOutfits = res.data.outfits.map((outfit) => {
 				outfit.top += diff;
@@ -180,13 +186,17 @@ export const AppMain = () => {
 			console.log("Rating Outfit...");
 			let url = `${backendTarget}/rateOutfit`;
 			let res = await axios.post(url, {
-				p1: args[0],
-				p2: args[1],
-				p3: args[2],
-				id1: args[3],
-				id2: args[4],
-				id3: args[5],
-				rating: args[6],
+				method: "POST",
+				credentials: "include",
+				body: {
+					p1: args[0],
+					p2: args[1],
+					p3: args[2],
+					id1: args[3],
+					id2: args[4],
+					id3: args[5],
+					rating: args[6],
+				},
 			});
 			console.log("Outfit Rated");
 			return res.data;
@@ -208,8 +218,12 @@ export const AppMain = () => {
 			console.log("Deleting Outfit...");
 			let url = `${backendTarget}/deleteItem`;
 			let res = await axios.post(url, {
-				id: args.id,
-				collection: args.collection,
+				method: "DELETE",
+				credentials: "include",
+				body: {
+					id: args.id,
+					collection: args.collection,
+				},
 			});
 			console.log("Outfit Deleted");
 			return res.data;

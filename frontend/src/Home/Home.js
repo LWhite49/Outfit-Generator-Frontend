@@ -38,10 +38,10 @@ export const Home = () => {
 							curated for you.
 						</p>
 						<Link
-							to="/generator"
+							to="/wardrobe"
 							onClick={() => {
 								window.scrollTo(0, 0);
-								setSubPage("/generator");
+								setSubPage("/wardrobe");
 							}}>
 							<button className="Hero-Button">Jump In</button>
 						</Link>
@@ -265,10 +265,10 @@ export const Home = () => {
 						so...
 					</p>
 					<Link
-						to="/generator"
+						to="/wardrobe"
 						onClick={() => {
 							window.scrollTo(0, 0);
-							setSubPage("/generator");
+							setSubPage("/wardrobe");
 						}}>
 						<button className="Bottom-Call-To-Action">
 							Try it Now!

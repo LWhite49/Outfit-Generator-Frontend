@@ -38,7 +38,7 @@ export const About = () => {
 			<div className="About-Memo-Wrap">
 				<div className="About-Memo-Panel">
 					<p className="About-Memo">
-						&bull; Outfit Generator was created by a team of{" "}
+						&bull; Wardrobe Wizard was created by a team of{" "}
 						<span className="About-Memo-Highlight">
 							three undergraduate students
 						</span>{" "}
@@ -54,7 +54,7 @@ export const About = () => {
 						</span>
 					</p>
 					<p className="About-Memo">
-						&bull; Our vision for Outfit Generator is a way of{" "}
+						&bull; Our vision for Wardrobe Wizard is a way of{" "}
 						<span className="About-Memo-Highlight">
 							making fashion accessible
 						</span>{" "}
@@ -395,13 +395,13 @@ export const About = () => {
 						alt="Processing"
 					/>
 					<Link
-						to="/generator"
+						to="/wardrobe"
 						onClick={() => {
 							window.scrollTo(0, 0);
-							setSubPage("/generator");
+							setSubPage("/wardrobe");
 						}}>
 						<button className="Bottom-Call-To-Action">
-							Back to Generator
+							Back to Wardrobe
 						</button>
 					</Link>
 				</div>
