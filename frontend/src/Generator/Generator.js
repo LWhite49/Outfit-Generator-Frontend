@@ -673,7 +673,7 @@ export const Generator = () => {
 			{isLoading ||
 			(isLoadingExpand &&
 				feedStatus.currIndex +
-					Math.floor(windowWidth / displayDivisor) ===
+					Math.floor(windowWidth / displayDivisor) >=
 					outfitFeed.outfits.length) ? (
 				<img
 					src={loadingBuddy}

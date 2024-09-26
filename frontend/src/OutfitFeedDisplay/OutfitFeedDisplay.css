@@ -32,6 +32,7 @@
 	cursor: pointer;
 	border: #c9ace1 solid 2px;
 	background-color: #f6ecfe;
+	pointer-events: all;
 }
 .Outfit-Rating-Button:hover {
 	border: black solid 2px;

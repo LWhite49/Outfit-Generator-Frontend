@@ -28,13 +28,17 @@ export const OutfitFeedDisplay = (props) => {
 	const incrementFeed = () => {
 		setFeedStatus({
 			feedLength: feedStatus.feedLength,
-			currIndex: feedStatus.currIndex + 1,
+			currIndex: Math.min(
+				feedStatus.currIndex + displayCount,
+				feedStatus.feedLength - displayCount
+			),
 		});
-		if (feedStatus.currIndex + displayCount + 7 >= feedStatus.feedLength) {
+		if (feedStatus.currIndex + displayCount + 10 >= feedStatus.feedLength) {
 			refetchExpandFeed();
+			console.log("Expanding Feed");
 			setFeedStatus({
 				feedLength: feedStatus.feedLength + 20,
-				currIndex: feedStatus.currIndex + 1,
+				currIndex: feedStatus.currIndex + displayCount,
 				expanded: true,
 			});
 		}
@@ -47,7 +51,7 @@ export const OutfitFeedDisplay = (props) => {
 		}
 		setFeedStatus({
 			feedLength: feedStatus.feedLength,
-			currIndex: feedStatus.currIndex - 1,
+			currIndex: Math.max(feedStatus.currIndex - displayCount, 0),
 		});
 	};
 
@@ -216,6 +220,7 @@ export const OutfitFeedDisplay = (props) => {
 							/>
 						</button>
 					</div>
+
 					<TopDisplay
 						item={
 							outfitFeed.pallet[

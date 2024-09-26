@@ -343,15 +343,23 @@ export const About = () => {
 					<div className="Tech-Stack-Node-Text-Wrapper">
 						<p className="Tech-Stack-Node-Text">
 							<span className="Tech-Stack-Bullet">&bull;</span>
-							We are still designing the Machine learning Model,
-							but it will be built with Python{" "}
+							MongoDB Database stores live reactions to outfits
+							from users, archiving individual item data in
+							dimensional collections{" "}
 						</p>
 						<p className="Tech-Stack-Node-Text">
 							<span className="Tech-Stack-Bullet">&bull;</span>
-							This Model will recieve live feedback from users via
-							a like/dislike system, which will train the model
-							over time to generate outfits with better matching
-							colors{" "}
+							The Machine Learning model is trained Pandas to join
+							and clean this data, applying functional color
+							theory to engineer useful feature vectors that
+							describe the relationships between individual items{" "}
+						</p>
+						<p className="Tech-Stack-Node-Text">
+							<span className="Tech-Stack-Bullet">&bull;</span>
+							Specifically, scikit-learn is used to train a random
+							forest classifier on this data, saving the fitted
+							model to predict liked outfits out of a pool of new
+							items at runtime{" "}
 						</p>
 					</div>
 					<img
