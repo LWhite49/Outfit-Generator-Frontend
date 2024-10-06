@@ -246,38 +246,40 @@ export const OutfitFeedDisplay = (props) => {
 					/>
 				</div>
 			))}
-			<div className="Outfit-Feed-Item-Buffer">
-				<TopDisplay
-					item={
-						outfitFeed.pallet[
-							outfitFeed.outfits[
-								feedStatus.currIndex + feedArray.length
+			{feedArray.map((i, index) => (
+				<div className="Outfit-Feed-Item-Buffer">
+					<TopDisplay
+						item={
+							outfitFeed.pallet[
+								outfitFeed.outfits[
+									feedStatus.currIndex + feedArray.length + i
+								].top
 							].top
-						].top
-					}
-					invis={true}
-				/>
-				<BottomDisplay
-					item={
-						outfitFeed.pallet[
-							outfitFeed.outfits[
-								feedStatus.currIndex + feedArray.length
+						}
+						invis={true}
+					/>
+					<BottomDisplay
+						item={
+							outfitFeed.pallet[
+								outfitFeed.outfits[
+									feedStatus.currIndex + feedArray.length + i
+								].bottom
 							].bottom
-						].bottom
-					}
-					invis={true}
-				/>
-				<ShoeDisplay
-					item={
-						outfitFeed.pallet[
-							outfitFeed.outfits[
-								feedStatus.currIndex + feedArray.length
-							].shoe
-						].shoes
-					}
-					invis={true}
-				/>
-			</div>
+						}
+						invis={true}
+					/>
+					<ShoeDisplay
+						item={
+							outfitFeed.pallet[
+								outfitFeed.outfits[
+									feedStatus.currIndex + feedArray.length + i
+								].shoe
+							].shoes
+						}
+						invis={true}
+					/>
+				</div>
+			))}
 			<button
 				className="Outfit-Feed-Button-EndDiv"
 				data-tooltip-id="incrementFeed"

@@ -33,7 +33,7 @@ export const AppMain = () => {
 	const origin = window.location.origin;
 	let backendTarget = "";
 	if (origin.includes("localhost")) {
-		backendTarget = "http://localhost:3500";
+		backendTarget = "http://localhost:10000";
 	} else {
 		backendTarget = "https://wardrobewizard-backend.onrender.com";
 	}
