@@ -116,8 +116,10 @@ export const AppMain = () => {
 				currIndex: 0,
 				expanded: false,
 			});
+			return 0;
 		} catch (err) {
 			console.log("Trouble Fetching outfitFeed:", err);
+			return err;
 		}
 	};
 
@@ -169,9 +171,11 @@ export const AppMain = () => {
 				pallet: prev.pallet.concat(res.data.pallet),
 				outfits: prev.outfits.concat(adjustedOutfits),
 			}));
+			return 0;
 			// console.log("Feed expanded");
 		} catch (err) {
 			console.log(err, "Error expanding feed");
+			return err;
 		}
 	};
 
