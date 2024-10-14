@@ -25,7 +25,6 @@ export const Generator = () => {
 		outfitFeed,
 		feedStatus,
 		isLoading,
-		isLoadingExpand,
 		refetchFeed,
 	} = useContext(FeedContext);
 
@@ -671,10 +670,10 @@ export const Generator = () => {
 				</p>
 			</div>
 			{isLoading ||
-			(isLoadingExpand &&
-				feedStatus.currIndex +
-					Math.floor(windowWidth / displayDivisor) >=
-					outfitFeed.outfits.length) ? (
+			feedStatus.currIndex +
+				Math.floor(windowWidth / displayDivisor) +
+				4 >=
+				outfitFeed.outfits.length ? (
 				<img
 					src={loadingBuddy}
 					alt={"Loading..."}

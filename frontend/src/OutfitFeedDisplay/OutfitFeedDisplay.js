@@ -26,21 +26,18 @@ export const OutfitFeedDisplay = (props) => {
 
 	// Create a function that increments the feed index
 	const incrementFeed = () => {
-		setFeedStatus({
-			feedLength: feedStatus.feedLength,
-			currIndex: Math.min(
-				feedStatus.currIndex + displayCount,
-				feedStatus.feedLength - displayCount
-			),
+		setFeedStatus((prev) => {
+			const next = { ...prev };
+			next.feedLength = feedStatus.feedLength;
+			next.currIndex = Math.min(
+				prev.currIndex + displayCount,
+				prev.feedLength - displayCount
+			);
+			return next;
 		});
 		if (feedStatus.currIndex + displayCount + 10 >= feedStatus.feedLength) {
 			refetchExpandFeed();
 			console.log("Expanding Feed");
-			setFeedStatus({
-				feedLength: feedStatus.feedLength + 20,
-				currIndex: feedStatus.currIndex + displayCount,
-				expanded: true,
-			});
 		}
 	};
 
@@ -49,9 +46,11 @@ export const OutfitFeedDisplay = (props) => {
 		if (feedStatus.currIndex === 0) {
 			return;
 		}
-		setFeedStatus({
-			feedLength: feedStatus.feedLength,
-			currIndex: Math.max(feedStatus.currIndex - displayCount, 0),
+		setFeedStatus((prev) => {
+			const next = { ...prev };
+			next.feedLength = feedStatus.feedLength;
+			next.currIndex = Math.max(prev.currIndex - displayCount, 0);
+			return next;
 		});
 	};
 
@@ -228,6 +227,7 @@ export const OutfitFeedDisplay = (props) => {
 							].top
 						}
 					/>
+
 					<BottomDisplay
 						item={
 							outfitFeed.pallet[
@@ -246,40 +246,52 @@ export const OutfitFeedDisplay = (props) => {
 					/>
 				</div>
 			))}
-			{feedArray.map((i, index) => (
-				<div className="Outfit-Feed-Item-Buffer">
-					<TopDisplay
-						item={
-							outfitFeed.pallet[
-								outfitFeed.outfits[
-									feedStatus.currIndex + feedArray.length + i
-								].top
-							].top
-						}
-						invis={true}
-					/>
-					<BottomDisplay
-						item={
-							outfitFeed.pallet[
-								outfitFeed.outfits[
-									feedStatus.currIndex + feedArray.length + i
-								].bottom
-							].bottom
-						}
-						invis={true}
-					/>
-					<ShoeDisplay
-						item={
-							outfitFeed.pallet[
-								outfitFeed.outfits[
-									feedStatus.currIndex + feedArray.length + i
-								].shoe
-							].shoes
-						}
-						invis={true}
-					/>
-				</div>
-			))}
+			{feedArray.map((i, index) => {
+				const tempIndex = feedStatus.currIndex + displayCount + i;
+				if (tempIndex >= outfitFeed.outfits.length) {
+					return null;
+				} else
+					return (
+						<div className="Outfit-Feed-Item-Buffer">
+							<TopDisplay
+								item={
+									outfitFeed.pallet[
+										outfitFeed.outfits[
+											feedStatus.currIndex +
+												displayCount +
+												i
+										].top
+									].top
+								}
+								invis={true}
+							/>
+							<BottomDisplay
+								item={
+									outfitFeed.pallet[
+										outfitFeed.outfits[
+											feedStatus.currIndex +
+												displayCount +
+												i
+										].bottom
+									].bottom
+								}
+								invis={true}
+							/>
+							<ShoeDisplay
+								item={
+									outfitFeed.pallet[
+										outfitFeed.outfits[
+											feedStatus.currIndex +
+												displayCount +
+												i
+										].shoe
+									].shoes
+								}
+								invis={true}
+							/>
+						</div>
+					);
+			})}
 			<button
 				className="Outfit-Feed-Button-EndDiv"
 				data-tooltip-id="incrementFeed"

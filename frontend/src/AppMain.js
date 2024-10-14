@@ -10,8 +10,9 @@ import logo from "./images/WWLogo.png";
 import circle from "./images/circle.svg";
 import loadingBuddy from "./images/LoadingBuddy.png";
 
-// Issues on current production build
-// #1) Loading bubbles do not move smoothly
+// NEED TO:
+// Fix issue where only one refetch works, probably through explicit use of prev => next states
+// Figure out why feed images are only smooth after moving back once, then forward again
 
 //Import Images using require.context
 const imageContext = require.context(
@@ -170,6 +171,11 @@ export const AppMain = () => {
 			setOutfitFeed((prev) => ({
 				pallet: prev.pallet.concat(res.data.pallet),
 				outfits: prev.outfits.concat(adjustedOutfits),
+			}));
+			setFeedStatus((prev) => ({
+				feedLength: prev.feedLength + 20,
+				currIndex: prev.currIndex,
+				expanded: true,
 			}));
 			return 0;
 			// console.log("Feed expanded");
