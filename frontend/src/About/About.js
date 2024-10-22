@@ -172,11 +172,11 @@ export const About = () => {
 							/>
 							<img
 								onClick={() => {
-									// window.open(
-									// 	"mailto:lwhite4965@outlook.com",
-									// 	"_blank",
-									// 	"noopener,noreferrer"
-									// );
+									window.open(
+										"mailto:patrick.w.aabram@gmail.com",
+										"_blank",
+										"noopener,noreferrer"
+									);
 								}}
 								className="Dev-Display-Link"
 								src={EmailImg}
@@ -220,11 +220,11 @@ export const About = () => {
 							/>
 							<img
 								onClick={() => {
-									// window.open(
-									// 	"mailto:lwhite4965@outlook.com",
-									// 	"_blank",
-									// 	"noopener,noreferrer"
-									// );
+									window.open(
+										"mailto:lacsamanajoshua405@gmail.com",
+										"_blank",
+										"noopener,noreferrer"
+									);
 								}}
 								className="Dev-Display-Link"
 								src={EmailImg}
