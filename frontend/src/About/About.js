@@ -23,7 +23,7 @@ export const About = () => {
 	// Create a function that opens the video documentation in a new tab
 	const openVideoDocumentation = () => {
 		window.open(
-			"https://youtu.be/od_PmtmMDV0?si=qvfHOexXgZe4G8vI",
+			"https://youtu.be/WJHqvNOK_G8?si=E3SwybOpIJcNhNqY",
 			"_blank",
 			"noopener,noreferrer"
 		);
