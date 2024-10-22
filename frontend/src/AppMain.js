@@ -36,7 +36,8 @@ export const AppMain = () => {
 	if (origin.includes("localhost")) {
 		backendTarget = "http://localhost:10000";
 	} else {
-		backendTarget = "https://wardrobewizard-backend.onrender.com";
+		backendTarget =
+			"https://wardrobewizard-671656535746.us-central1.run.app";
 	}
 
 	// Create state for feed status, used for conditional rendering and feed expansion
