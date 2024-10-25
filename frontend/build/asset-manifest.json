@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5a8087cd.css",
-    "main.js": "/static/js/main.1ceb4096.js",
+    "main.css": "/static/css/main.7c55d2f2.css",
+    "main.js": "/static/js/main.000948ba.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
     "static/media/man6.jpg": "/static/media/man6.5a6792951a45960841d9.jpg",
     "static/media/woman3.jpg": "/static/media/woman3.bc94f1a9e24dc562bf43.jpg",
@@ -50,12 +50,12 @@
     "static/media/brandTag.svg": "/static/media/brandTag.cd630d83e7d1a6305556affc891c6487.svg",
     "static/media/waistMaxIcon.svg": "/static/media/waistMaxIcon.cd630d83e7d1a6305556affc891c6487.svg",
     "static/media/downArrowHome.svg": "/static/media/downArrowHome.a92030a43a88b25648c743e16849ae7b.svg",
-    "main.5a8087cd.css.map": "/static/css/main.5a8087cd.css.map",
-    "main.1ceb4096.js.map": "/static/js/main.1ceb4096.js.map",
+    "main.7c55d2f2.css.map": "/static/css/main.7c55d2f2.css.map",
+    "main.000948ba.js.map": "/static/js/main.000948ba.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a8087cd.css",
-    "static/js/main.1ceb4096.js"
+    "static/css/main.7c55d2f2.css",
+    "static/js/main.000948ba.js"
   ]
 }

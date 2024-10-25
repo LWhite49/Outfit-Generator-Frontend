@@ -85,7 +85,7 @@ export const Generator = () => {
 
 	// Define a function that accepts a bool, decrementing waist size if 0 and incrementing if 1
 	const updateWaistSize = (bool) => {
-		if (waistSize === 28 && bool === 0) {
+		if (waistSize === 24 && bool === 0) {
 			return;
 		}
 		if (waistSize === 44 && bool === 1) {
@@ -125,10 +125,10 @@ export const Generator = () => {
 					XXL: false,
 				});
 			} else {
-				setWaistSize(Math.max(waistSize - 2, 28));
+				setWaistSize(Math.max(waistSize - 2, 24));
 				setSize({
 					...size,
-					bottomSizes: [String(Math.max(waistSize - 2, 28))],
+					bottomSizes: [String(Math.max(waistSize - 2, 24))],
 				});
 			}
 		}
@@ -583,7 +583,7 @@ export const Generator = () => {
 								<img
 									className="Waist-Size-Down-Icon"
 									src={
-										waistSize === 28
+										waistSize === 24
 											? waistSizeMax
 											: waistSizeIncrementIcon
 									}
