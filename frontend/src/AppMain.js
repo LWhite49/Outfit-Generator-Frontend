@@ -241,6 +241,7 @@ export const AppMain = () => {
 				{
 					id: args.id,
 					collection: args.collection,
+					item: args.item,
 				},
 				{ method: "POST", credentials: "include" }
 			);
@@ -259,6 +260,7 @@ export const AppMain = () => {
 	});
 
 	// Return loading screen when outfitFeed is empty
+
 	return Object.keys(outfitFeed).length > 0 ? (
 		<Router>
 			<FeedContext.Provider
