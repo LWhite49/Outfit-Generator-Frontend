@@ -54,8 +54,8 @@
 .Shoe-Display-Size-Container {
 	display: inline-block;
 	position: absolute;
-	top: calc((var(--componentHeight) / 20));
-	left: calc(var(--componentHeight) / 8);
+	top: 10px;
+	left: 10px;
 	z-index: 101;
 	border: black solid 2px;
 	border-radius: 14px;
@@ -136,5 +136,12 @@
 	}
 	.Shoe-Display-Size-Text {
 		font-size: 8pt;
+	}
+	.Report-Image {
+		width: 28px;
+	}
+	.Report-Outfit-Button {
+		width: 36px;
+		height: 36px;
 	}
 }
