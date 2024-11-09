@@ -54,7 +54,7 @@ export const TopDisplay = (props) => {
 				onClick={() => {
 					window.open(`${topItem.productListing}`);
 				}}
-				loading="lazy"></img>
+				loading="eager"></img>
 			<div className="Top-Display-Size-Container">
 				<p className="Top-Display-Size-Text"> {topItem.productSize}</p>
 			</div>

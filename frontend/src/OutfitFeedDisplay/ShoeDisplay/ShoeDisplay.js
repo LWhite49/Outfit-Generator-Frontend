@@ -53,7 +53,7 @@ export const ShoeDisplay = (props) => {
 				onClick={() => {
 					window.open(`${shoeItem.productListing}`);
 				}}
-				loading="lazy"></img>
+				loading="eager"></img>
 			<div className="Shoe-Display-Size-Container">
 				<p className="Shoe-Display-Size-Text">
 					{" "}

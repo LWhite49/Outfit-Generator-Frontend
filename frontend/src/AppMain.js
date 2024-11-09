@@ -118,6 +118,7 @@ export const AppMain = () => {
 				currIndex: 0,
 				expanded: false,
 			});
+
 			return 0;
 		} catch (err) {
 			console.log("Trouble Fetching outfitFeed:", err);
@@ -348,7 +349,8 @@ export const AppMain = () => {
 								className="NavbarLogo"
 								src={logo}
 								alt="Logo"
-								onClick={() => {}}></img>
+								onClick={() => {}}
+								loading="eager"></img>
 						</Link>
 					</div>
 					<Routes>

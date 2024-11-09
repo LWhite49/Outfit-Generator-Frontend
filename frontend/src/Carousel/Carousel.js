@@ -31,6 +31,7 @@ export const Carousel = ({ images }) => {
 								src={image}
 								alt="Outfit"
 								className="SlideImage"
+								loading="eager"
 							/>
 						</div>
 					);

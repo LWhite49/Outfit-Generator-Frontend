@@ -53,7 +53,7 @@ export const BottomDisplay = (props) => {
 				onClick={() => {
 					window.open(`${bottomItem.productListing}`);
 				}}
-				loading="lazy"></img>
+				loading="eager"></img>
 			<div className="Bottom-Display-Size-Container">
 				<p className="Bottom-Display-Size-Text">
 					{" "}
