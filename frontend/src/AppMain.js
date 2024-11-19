@@ -10,10 +10,6 @@ import logo from "./images/WWLogo.png";
 import circle from "./images/circle.svg";
 import loadingBuddy from "./images/LoadingBuddy.png";
 
-// NEED TO:
-// Fix issue where only one refetch works, probably through explicit use of prev => next states
-// Figure out why feed images are only smooth after moving back once, then forward again
-
 //Import Images using require.context
 const imageContext = require.context(
 	"./images/CarouselImages",
@@ -27,6 +23,15 @@ const images = imageContextKeys.map((key) => imageContext(key));
 export const FeedContext = createContext();
 
 export const AppMain = () => {
+	// Loading state, initially false
+	const [initLoad, setInitLoad] = useState(false);
+
+	// Create a useEffect that sets the loading state to true after 2 seconds
+	useEffect(() => {
+		setTimeout(() => {
+			setInitLoad(true);
+		}, 3000);
+	});
 	// Create a state for the outfitFeed array as well as a bool telling if the feed is randomly generated
 	const [outfitFeed, setOutfitFeed] = useState([]);
 
@@ -147,6 +152,7 @@ export const AppMain = () => {
 		enabled: false,
 	});
 
+	// Fetch the initial feed
 	useEffect(() => {
 		refetchFeed();
 	}, [refetchFeed]);
@@ -260,12 +266,11 @@ export const AppMain = () => {
 		mutationFn: deleteOutfit,
 	});
 
-	// Return loading screen when outfitFeed is empty
-
-	return Object.keys(outfitFeed).length > 0 ? (
+	return initLoad ? (
 		<Router>
 			<FeedContext.Provider
 				value={{
+					initLoad,
 					outfitFeed,
 					setOutfitFeed,
 					feedStatus,

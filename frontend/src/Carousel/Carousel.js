@@ -21,17 +21,20 @@ export const Carousel = ({ images }) => {
 		draggable: false,
 	};
 
+	// Shuffle images to display in random order
+	images = _.shuffle(images);
+
 	return (
 		<div className="carousel">
 			<Slider {...settings}>
-				{_.shuffle(images).map((image, index) => {
+				{images.map((image, index) => {
 					return (
 						<div key={index}>
 							<img
 								src={image}
 								alt="Outfit"
 								className="SlideImage"
-								loading="eager"
+								loading="lazy"
 							/>
 						</div>
 					);
