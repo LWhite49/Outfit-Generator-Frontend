@@ -33,7 +33,11 @@ export const AppMain = () => {
 		}, 3000);
 	});
 	// Create a state for the outfitFeed array as well as a bool telling if the feed is randomly generated
-	const [outfitFeed, setOutfitFeed] = useState([]);
+	const [outfitFeed, setOutfitFeed] = useState({
+		pallet: [],
+		outfits: [],
+		wasRandom: false,
+	});
 
 	// Reference origin to conditionally assign requests to the server
 	const origin = window.location.origin;
@@ -102,12 +106,25 @@ export const AppMain = () => {
 	// Create a queryFn that fetches the outfitFeed from the server
 	const fetchOutfitFeed = async () => {
 		try {
+			// Empty the outfitFeed state
+			setOutfitFeed({
+				pallet: [],
+				outfits: [],
+				wasRandom: false,
+			});
+			// Capture states
+			const sizeCapture = size;
+			const brandCapture = brand;
+			const topGenderCapture = topGender;
+			const bottomGenderCapture = bottomGender;
+			const shoeGenderCapture = shoeGender;
+
 			// Define target URL
 			let url = `${backendTarget}/generateOutfitFeed?size=${JSON.stringify(
-				size
+				sizeCapture
 			)}&brand=${JSON.stringify(
-				brand
-			)}&topGender=${topGender}&bottomGender=${bottomGender}&shoeGender=${shoeGender}`;
+				brandCapture
+			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}`;
 			// Get the outfitFeed from the server
 			console.log("Fetching Feed");
 			let res = await axios.get(url, {
@@ -123,6 +140,7 @@ export const AppMain = () => {
 				currIndex: 0,
 				expanded: false,
 			});
+			console.log(res.data);
 
 			return 0;
 		} catch (err) {
@@ -160,11 +178,18 @@ export const AppMain = () => {
 	// Define function that extends the feed by 20 outfits
 	const expandFeed = async () => {
 		try {
+			// Capture states
+			const sizeCapture = size;
+			const brandCapture = brand;
+			const topGenderCapture = topGender;
+			const bottomGenderCapture = bottomGender;
+			const shoeGenderCapture = shoeGender;
+
 			let url = `${backendTarget}/generateOutfitFeed?size=${JSON.stringify(
-				size
+				sizeCapture
 			)}&brand=${JSON.stringify(
-				brand
-			)}&topGender=${topGender}&bottomGender=${bottomGender}&shoeGender=${shoeGender}`;
+				brandCapture
+			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}`;
 			let res = await axios.get(url, {
 				method: "GET",
 				credentials: "include",

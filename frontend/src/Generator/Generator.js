@@ -673,7 +673,8 @@ export const Generator = () => {
 			feedStatus.currIndex +
 				Math.floor(windowWidth / displayDivisor) +
 				4 >=
-				outfitFeed.outfits.length ? (
+				outfitFeed.outfits.length ||
+			!outfitFeed.outfits ? (
 				<img
 					src={loadingBuddy}
 					alt={"Loading..."}
