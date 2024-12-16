@@ -124,7 +124,7 @@ export const AppMain = () => {
 				sizeCapture
 			)}&brand=${JSON.stringify(
 				brandCapture
-			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}`;
+			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}&outfitCount=${20}&palletSize=${60}`;
 			// Get the outfitFeed from the server
 			console.log("Fetching Feed");
 			let res = await axios.get(url, {
@@ -189,7 +189,7 @@ export const AppMain = () => {
 				sizeCapture
 			)}&brand=${JSON.stringify(
 				brandCapture
-			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}`;
+			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}&outfitCount=${20}&palletSize=${60}`;
 			let res = await axios.get(url, {
 				method: "GET",
 				credentials: "include",
