@@ -129,7 +129,7 @@ export const AppMain = () => {
 			console.log("Fetching Feed");
 			let res = await axios.get(url, {
 				method: "GET",
-				credentials: "include",
+				withCredentials: true,
 			});
 			console.log("Feed Fetched");
 			// Set the outfitFeed state
@@ -192,7 +192,7 @@ export const AppMain = () => {
 			)}&topGender=${topGenderCapture}&bottomGender=${bottomGenderCapture}&shoeGender=${shoeGenderCapture}&outfitCount=${20}&palletSize=${60}`;
 			let res = await axios.get(url, {
 				method: "GET",
-				credentials: "include",
+				withCredentials: true,
 			});
 			const diff = outfitFeed.pallet.length;
 			const adjustedOutfits = res.data.outfits.map((outfit) => {
@@ -247,7 +247,7 @@ export const AppMain = () => {
 					id3: args[5],
 					rating: args[6],
 				},
-				{ method: "POST", credentials: "include" }
+				{ method: "POST", withCredentials: true }
 			);
 			console.log("Outfit Rated");
 			return res.data;
@@ -275,7 +275,7 @@ export const AppMain = () => {
 					collection: args.collection,
 					item: args.item,
 				},
-				{ method: "POST", credentials: "include" }
+				{ method: "POST", withCredentials: true }
 			);
 			console.log("Outfit Deleted");
 			return res.data;

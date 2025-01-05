@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.dfc21429.css",
-    "main.js": "/static/js/main.a3188fa6.js",
+    "main.css": "/static/css/main.66e8269e.css",
+    "main.js": "/static/js/main.903ec736.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
     "static/media/man6.jpg": "/static/media/man6.5a6792951a45960841d9.jpg",
     "static/media/woman3.jpg": "/static/media/woman3.bc94f1a9e24dc562bf43.jpg",
@@ -26,7 +26,7 @@
     "static/media/reactSvg.svg": "/static/media/reactSvg.598d90dd4f36234e376cbc6ccd571550.svg",
     "static/media/outfitSvg.svg": "/static/media/outfitSvg.afa44dc046d9d9fc8d4acbd2449e25ee.svg",
     "static/media/waistIncrementIcon.svg": "/static/media/waistIncrementIcon.0a87efe66bec22b4ccea44d4fc1b262b.svg",
-    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.svg": "/static/media/slick.7ba97953187dc2907930.svg",
     "static/media/feedbackSvg.svg": "/static/media/feedbackSvg.4eee9425a4f2cc9ec503d6ecadd8f4a0.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/pythonSvg.svg": "/static/media/pythonSvg.7658fc5b493f0fa4979b28893c05b15b.svg",
@@ -50,12 +50,12 @@
     "static/media/brandTag.svg": "/static/media/brandTag.cd630d83e7d1a6305556affc891c6487.svg",
     "static/media/waistMaxIcon.svg": "/static/media/waistMaxIcon.cd630d83e7d1a6305556affc891c6487.svg",
     "static/media/downArrowHome.svg": "/static/media/downArrowHome.a92030a43a88b25648c743e16849ae7b.svg",
-    "main.dfc21429.css.map": "/static/css/main.dfc21429.css.map",
-    "main.a3188fa6.js.map": "/static/js/main.a3188fa6.js.map",
+    "main.66e8269e.css.map": "/static/css/main.66e8269e.css.map",
+    "main.903ec736.js.map": "/static/js/main.903ec736.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dfc21429.css",
-    "static/js/main.a3188fa6.js"
+    "static/css/main.66e8269e.css",
+    "static/js/main.903ec736.js"
   ]
 }
