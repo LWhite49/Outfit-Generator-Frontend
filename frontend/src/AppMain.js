@@ -46,7 +46,7 @@ export const AppMain = () => {
 		backendTarget = "http://localhost:10000";
 	} else {
 		backendTarget =
-			"https://wardrobewizard-671656535746.us-central1.run.app";
+			"http://wardrobe.hab6e9akbqfpdshj.eastus.azurecontainer.io:10000";
 	}
 
 	// Create state for feed status, used for conditional rendering and feed expansion
